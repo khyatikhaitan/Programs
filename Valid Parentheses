@@ -1,0 +1,30 @@
+//Code in Java
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> str=new Stack<>();
+        str.push('.');
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)==')'&&(str.empty()==false)){
+                char c=str.pop();
+                if(c!='(')
+                    return false;
+            }
+            if(s.charAt(i)==']'&&(str.empty()==false)){
+                char c=str.pop();
+                if(c!='[')
+                    return false;
+            }
+            if(s.charAt(i)=='}'&&(str.empty()==false)){
+                char c=str.pop();
+                if(c!='{')
+                    return false;
+            }
+            if(s.charAt(i)=='('||s.charAt(i)=='{'||s.charAt(i)=='[')
+                str.push(s.charAt(i));
+        }
+        if(str.pop()=='.')
+         return true;
+        else
+            return false;
+    }
+}
