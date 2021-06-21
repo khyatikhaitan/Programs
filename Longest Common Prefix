@@ -1,0 +1,14 @@
+#Code in Python
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        val=strs[0]
+        for i in range(1,len(strs)):
+            if not(val in strs[i][0:len(val)]):
+                val1=""
+                for j in range(len(strs[i])):
+                    if val[j]==strs[i][j]:
+                        val1=val1+val[j]
+                    else:
+                        break
+                val=val1
+        return val
