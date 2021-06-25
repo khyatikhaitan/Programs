@@ -1,0 +1,19 @@
+Language- C++
+
+class Solution {
+public:
+    int lastStoneWeight(vector<int>& stones) {
+        priority_queue <int> p(begin(stones),end(stones));
+        while(p.size()>=2){
+            int a=p.top();
+            p.pop();
+            int b=p.top();
+            p.pop();
+            if(a==b)
+                p.push(0);
+            if(a!=b)
+                p.push(a-b);
+        }
+        return p.top();
+    }
+};
